@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "layout.html" %}
+
+{% block content %}
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <select class="image-picker show-html">
+            <option value=""></option>
+            <option data-img-src='http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/058/06/0010580607.jpg&w=348&h=348' value='4.jpg'>4.jpg</option>
+            <option data-img-src='/static/images/land2.jpg' value='google.jpg'>google.jpg</option>
+            <option data-img-src='/static/images/land3.jpg' value='5.jpg'>5.jpg</option>
+            <option data-img-src='/static/images/land4.jpg' value='6.jpg'>6.jpg</option>
+            <option data-img-src='/static/images/land5.jpg' value='aom.jpg'>aom.jpg</option>
+            <option data-img-src='/static/images/land6.jpg' value='aom2.jpg'>aom2.jpg</option>
+            <option data-img-src='/static/images/land7.jpg' value='aom3.jpg'>aom3.jpg</option>
+        </select>
+        <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="/static/js/image-picker.js"></script>
+        <script>$("select").imagepicker();
+        //var $grid = $('.image_picker_selector')
+        //$('.grid').masonry();
+        //$grid.imagesLoaded(function () {
+    //$grid.masonry({
+        //columnWidth: 200,
+        //itemSelector: '.thumbnail'
+    //});
+//});
+        </script>
+    </div>
+</header>
+{% endblock %}

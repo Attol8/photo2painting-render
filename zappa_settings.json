@@ -1,0 +1,11 @@
+{
+    "dev": {
+        "app_function": "api.app.app",
+        "profile_name": "default",
+        "project_name": "photo2painting-",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-xs2ykff3b",
+        "slim_handler": "true",
+        "remote_aws_region": "eu-central-1"
+    }
+}

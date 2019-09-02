@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "layout.html" %}
+
+{% block content %} 
+  <!-- About Section -->
+  <section class="page-section bg-primary text-white mb-0" id="about" style="margin-top: 2%">
+    <div class="container">
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">Thanks for trying my App :)</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+        <div class="col-lg-4 ml-auto">
+          <p class="lead">You can Download your picture by clicking the Download button. </p>
+        </div>
+        <div class="col-lg-4 mr-auto">
+          <p class="lead">If you enjoyed the app please checkout my portfolio of projects and get in contact.</p>
+        </div>
+      </div>
+
+      <!-- About Section Button -->
+      <div class="text-center mt-4">
+        <a class="btn btn-primary" href="{{url_for('download_files')}}">
+          Free Download!
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "layout.html" %}
+
+{% block content %} 
+
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="/static/js/jquery.event.move.js"></script>
+<script src="/static/js/jquery.twentytwenty.js"></script>
+<script>jQuery(document).ready(function ($) {
+    $("#container1").twentytwenty();
+  });</script>
+<div id="container1">
+        <img src="/static/images/{{PhotoName}}.jpg">
+        <img src="/static/images/esult.jpg">
+    </div>
+
+{% endblock %}
