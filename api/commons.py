@@ -109,7 +109,7 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
 
     try:
 
-        S3.upload_fileobj(
+        S3.put_obj(
             file,
             bucket_name,
             file.filename,
@@ -124,5 +124,3 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
         # This is a catch all exception, edit this part to fit your needs.
         print("Something Happened: ", e)
         return e
-
-    return "{}{}".format(S3_LOCATION, file.filename)
