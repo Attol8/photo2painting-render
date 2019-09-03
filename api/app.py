@@ -53,7 +53,7 @@ def result_download():
 @app.route('/download_files/')
 def download_files():
 	try:
-		return send_file(os.path.join(app.root_path, 'api/static/images', 'result.jpg'), attachment_filename='photo2painting.jpg')
+		return send_file(os.path.join('api/static/images', 'result.jpg'), attachment_filename='photo2painting.jpg')
 	except Exception as e:
 		return str(e)
 
