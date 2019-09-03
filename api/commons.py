@@ -47,7 +47,7 @@ def download_file(url, dest):
 def get_model(style, input_nc = 3, output_nc = 3, norm_layer = functools.partial(torch.nn.InstanceNorm2d, affine=False, track_running_stats=False)):
     """pick model related to style"""
     #download model
-    load_path= Path(os.path.join('api\models', style +'.pth'))
+    load_path= Path(os.path.join('api/models', style +'.pth'))
     #Load model from S3
     model = networks.ResnetGenerator(input_nc, output_nc, norm_layer=norm_layer, use_dropout=False, n_blocks=9)
     #load_path = response['Body'].read().decode('utf-8')
