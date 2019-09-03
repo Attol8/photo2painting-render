@@ -31,7 +31,7 @@ def create():
                 ModelName = request.args.get('model')  
 
                 #get input photo and resize it
-                photo_path = os.path.join('static\images', PhotoName + '.jpg')
+                photo_path = os.path.join('static/images', PhotoName + '.jpg')
                 photo = load_photo(photo_path) #load photo and scale it if necessary
                 photo = input_photo(photo) #get tensor of photo (input of the model)
 
@@ -40,7 +40,7 @@ def create():
                 painting_image = tensor_to_PIL(painting_tensor) #transform output tensor to PIL Image
 
                 #save painting output
-                save_path = os.path.join('static\images', 'result.jpg') #app.root_path,
+                save_path = os.path.join('static/images', 'result.jpg') #app.root_path,
                 painting_image.save(save_path)
 
                 return render_template('result-download.html')    
