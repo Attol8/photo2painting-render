@@ -9,12 +9,11 @@ from PIL import Image
 from pathlib import Path
 import os
 from api.cgan.models import base_model, networks
-
-import boto3
+import boto3, botocore
 
 S3 = boto3.resource('s3')
 BUCKET_NAME = 'photo2painting'
-MODEL_FOLDER = 'models'
+S3_LOCATION = 'http://{}.s3.amazonaws.com/'.format(BUCKET_NAME)
 
 export_file_urls = {'monet':'https://drive.google.com/uc?export=download&id=1aVgCf1v3eZkYKHe1ghCkM7EvR0zFgWVq', 
                     'van-gogh':'https://drive.google.com/uc?export=download&id=1jdhYa81rSnAOEA_Y7POjPmObQ7CJBFMp', 
@@ -72,7 +71,7 @@ def load_photo(filename):
 
 def input_photo(im):
     """apply transforms on photo and get photo tensor"""
-    my_transforms = transforms.Compose([transforms.Resize(128),transforms.ToTensor()])
+    my_transforms = transforms.Compose([transforms.ToTensor()])
     return my_transforms(im).unsqueeze(0)
 
 def tensor_to_PIL(tensor):
@@ -105,3 +104,25 @@ def tensor2im(input_image, imtype=np.uint8):
     else:  # if it is a numpy array, do nothing
         image_numpy = input_image
     return image_numpy.astype(imtype)
+
+def upload_file_to_s3(file, bucket_name, acl="public-read"):
+
+    try:
+
+        S3.upload_fileobj(
+            file,
+            bucket_name,
+            file.filename,
+            ExtraArgs={
+                "ACL": acl,
+                "ContentType": file.content_type
+            }
+        )
+        
+
+    except Exception as e:
+        # This is a catch all exception, edit this part to fit your needs.
+        print("Something Happened: ", e)
+        return e
+
+    return "{}{}".format(S3_LOCATION, file.filename)
