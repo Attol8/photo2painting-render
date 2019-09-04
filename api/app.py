@@ -49,7 +49,7 @@ def create():
                 painting = tensor_to_PIL(painting) #transform output tensor to PIL Image       
                 #save painting output and update it to S3
                 u_id = str(uuid.uuid4())
-                save_path = 'api/static/esults/' + u_id +'.jpg'
+                save_path = os.path.join('api/static/esults/', u_id ,'.jpg')
                 painting.save(save_path)
 
                 return render_template('result-download.html', key = u_id)    
