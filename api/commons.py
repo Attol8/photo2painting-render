@@ -1,6 +1,6 @@
 import functools
 import aiohttp
-import io
+from io import BytesIO
 import numpy as np
 import torch
 import torch.nn as nn
@@ -10,6 +10,7 @@ from pathlib import Path
 import os
 from api.cgan.models import base_model, networks
 import boto3, botocore
+from flask import send_file
 
 S3 = boto3.resource('s3')
 BUCKET_NAME = 'photo2painting'
@@ -105,22 +106,8 @@ def tensor2im(input_image, imtype=np.uint8):
         image_numpy = input_image
     return image_numpy.astype(imtype)
 
-def upload_file_to_s3(file, bucket_name, acl="public-read"):
-
-    try:
-
-        S3.put_obj(
-            file,
-            bucket_name,
-            file.filename,
-            ExtraArgs={
-                "ACL": acl,
-                "ContentType": file.content_type
-            }
-        )
-        
-
-    except Exception as e:
-        # This is a catch all exception, edit this part to fit your needs.
-        print("Something Happened: ", e)
-        return e
+def serve_pil_image(pil_img):
+    img_io = BytesIO()
+    pil_img.save(img_io, 'JPEG', quality=70)
+    img_io.seek(0)
+    return send_file(img_io, mimetype='image/jpeg', attachment_filename='result.jpeg', as_attachment=True)

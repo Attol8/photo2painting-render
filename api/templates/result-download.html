@@ -31,7 +31,7 @@
 
       <!-- About Section Button -->
       <div class="text-center mt-4">
-        <form action= "{{ url_for('download_files') }}" method="POST" >
+        <form action= "{{ url_for('download_files') }}" method="POST" enctype="multipart/form-data">
         <button class="btn btn-primary" type="submit" name= 'download' value = {{key}}>
           Free Download!
         </button></form>

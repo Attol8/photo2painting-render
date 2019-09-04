@@ -1,10 +1,11 @@
 import sys
 import os
 import uuid
+import io
 sys.path.append('cgan')
 sys.path.append('api')
-from flask import Flask, render_template, request, send_from_directory
-from api.commons import input_photo, load_photo, tensor_to_PIL, upload_file_to_s3
+from flask import Flask, render_template, request, send_file
+from api.commons import input_photo, load_photo, tensor_to_PIL, serve_pil_image
 from api.inference import get_painting_tensor
 from pathlib import Path
 from PIL import Image
@@ -43,13 +44,13 @@ def create():
                 photo = input_photo(photo) #get tensor of photo (input of the model)
 
                 #run inference on the photo
-                painting_tensor = get_painting_tensor(photo, ModelName).cpu() #load model from S3 and run inference
-                painting_image = tensor_to_PIL(painting_tensor) #transform output tensor to PIL Image
-
+                painting = get_painting_tensor(photo, ModelName).cpu() #load model from S3 and run inference
+                photo = None
+                painting = tensor_to_PIL(painting) #transform output tensor to PIL Image       
                 #save painting output and update it to S3
                 u_id = str(uuid.uuid4())
                 save_path = 'api/static/esults/' + u_id +'.jpg'
-                painting_image.save(save_path)
+                painting.save(save_path)
 
                 return render_template('result-download.html', key = u_id)    
 
@@ -60,13 +61,12 @@ def result_download():
 
 @app.route('/download-files/', methods=['GET','POST'])
 def download_files():
-        try:
+        if request.method == 'POST':
                 key = request.form['download']
                 key = str(key)
-                print(key)
-                return send_from_directory(app.config['RESULTS'], filename=key+'.jpg', as_attachment=True)
-        except Exception as e:
-                return str(e)
+                img_path = os.path.join('api/static/esults/', key + '.jpg')
+                img = Image.open(img_path)
+                return serve_pil_image(img)
 
 if __name__ == '__main__':    
     # listen on all IPs 
