@@ -62,8 +62,8 @@ def load_photo(filename):
     im = Image.open(filename).convert('RGB')
     max_size = im.size[0] if im.size[0] >= im.size[1] else im.size[1]
     scale = 1.0
-    if(max_size >= 512):
-        scale = max_size/512
+    if(max_size >= 450):
+        scale = max_size/450
     im = im.resize(
         (int(im.size[0] / scale), int(im.size[1] / scale)), Image.ANTIALIAS)
     return(im)
