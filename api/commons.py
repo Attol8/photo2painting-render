@@ -55,7 +55,7 @@ def photo2painting(photo, style, input_nc = 3, output_nc = 3, norm_layer = funct
             __patch_instance_norm_state_dict(state_dict, model, key.split('.'))
         model.load_state_dict(state_dict, strict=True)
         model.eval()
-        return model.forward(photo)
+        return model(photo).cpu()
 
 def load_photo(filename):
     """Load the Image and scale it to 1500px if necessary"""

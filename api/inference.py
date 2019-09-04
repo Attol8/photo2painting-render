@@ -1,6 +1,4 @@
-import torch
-from api.commons import get_model
-import os
+"""deprecated use of file"""
 
 def get_painting_tensor(photo, style):
     """Forward function used in test time.

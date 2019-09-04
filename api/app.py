@@ -44,12 +44,13 @@ def create():
                 photo = input_photo(photo) #get tensor of photo (input of the model)
 
                 #run inference on the photo
-                painting = photo2painting(photo, ModelName).cpu() #load model from S3 and run inference
+                painting = photo2painting(photo, ModelName) #load model from S3 and run inference
                 photo = None
-                painting = tensor_to_PIL(painting) #transform output tensor to PIL Image       
+                painting = tensor_to_PIL(painting) #transform output tensor to PIL Image
+                print(type(painting))       
                 #save painting output and update it to S3
                 u_id = str(uuid.uuid4())
-                save_path = os.path.join('api/static/esults/', u_id ,'.jpg')
+                save_path = os.path.join('api/static/esults/', u_id + '.jpg')
                 painting.save(save_path)
 
                 return render_template('result-download.html', key = u_id)    
