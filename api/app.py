@@ -19,7 +19,7 @@ BUCKET_NAME = 'photo2painting'
 S3_LOCATION = 'http://{}.s3.amazonaws.com/'.format(BUCKET_NAME)
 
 if __name__ == '__main__':
-    app.run(debug= False)   
+    app.run   
     
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
