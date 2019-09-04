@@ -44,20 +44,18 @@ def download_file(url, dest):
     with open(dest, 'wb') as f:
         f.write(data)
 
-def get_model(style, input_nc = 3, output_nc = 3, norm_layer = functools.partial(torch.nn.InstanceNorm2d, affine=False, track_running_stats=False)):
+def photo2painting(photo, style, input_nc = 3, output_nc = 3, norm_layer = functools.partial(torch.nn.InstanceNorm2d, affine=False, track_running_stats=False)):
     """pick model related to style"""
-    #download model
-    load_path= Path(os.path.join('api/models', style +'.pth'))
-    #Load model from S3
-    model = networks.ResnetGenerator(input_nc, output_nc, norm_layer=norm_layer, use_dropout=False, n_blocks=9)
-    #load_path = response['Body'].read().decode('utf-8')
-    #load_path = key
-    state_dict = torch.load(load_path, map_location='cpu')
-    for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
-        __patch_instance_norm_state_dict(state_dict, model, key.split('.'))
-    model.load_state_dict(state_dict, strict=True)
-    model.eval()
-    return model
+    with torch.no_grad():
+        #download model
+        load_path= Path(os.path.join('api/models', style +'.pth'))
+        model = networks.ResnetGenerator(input_nc, output_nc, norm_layer=norm_layer, use_dropout=False, n_blocks=9)
+        state_dict = torch.load(load_path, map_location='cpu')
+        for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
+            __patch_instance_norm_state_dict(state_dict, model, key.split('.'))
+        model.load_state_dict(state_dict, strict=True)
+        model.eval()
+        return model.forward(photo)
 
 def load_photo(filename):
     """Load the Image and scale it to 1500px if necessary"""

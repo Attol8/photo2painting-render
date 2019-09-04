@@ -5,7 +5,7 @@ import io
 sys.path.append('cgan')
 sys.path.append('api')
 from flask import Flask, render_template, request, send_file
-from api.commons import input_photo, load_photo, tensor_to_PIL, serve_pil_image
+from api.commons import input_photo, load_photo, tensor_to_PIL, serve_pil_image, photo2painting
 from api.inference import get_painting_tensor
 from pathlib import Path
 from PIL import Image
@@ -44,7 +44,7 @@ def create():
                 photo = input_photo(photo) #get tensor of photo (input of the model)
 
                 #run inference on the photo
-                painting = get_painting_tensor(photo, ModelName).cpu() #load model from S3 and run inference
+                painting = photo2painting(photo, ModelName).cpu() #load model from S3 and run inference
                 photo = None
                 painting = tensor_to_PIL(painting) #transform output tensor to PIL Image       
                 #save painting output and update it to S3
