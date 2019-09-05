@@ -18,15 +18,18 @@
                 </div>
                 <div class="divider-custom-line"></div>
             </div>
-            <div class="row top-buffer"> 
+            <div class="row top-buffer">
+                <div class="col">
+            <p class="text-center mb-4" style="font-size:1.5rem;">Pictures are randomly picked from a list of ~100 landscape photographies.</p></div>
             <div class="row">
+            
             <!-- Card -->
             <div class="col">
                 <div class="card">
 
                         <!-- Card image -->
                         <div class="view overlay">
-                        <img class="card-img-top" src="/static/images/land1.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/static/images/land{{pics_list[0]}}.jpg" alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -34,13 +37,8 @@
                     
                         <!-- Card content -->
                         <div class="card-body">
-                    
-                        <!-- Title -->
-                        <h4 class="card-title" style="color:#747373">Card title</h4>
-                        <!-- Text -->
-                        <p class="card-text" style="color:#747373">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <!-- Button -->
-                        <form action="" method="POST" ><button type="submit" name="upload" value="land1" class="btn-primary">Button</a></form>
+                        <form action="" method="POST" ><button type="submit" name="upload" value="land{{pics_list[0]}}" class="btn btn-primary btn-lg">PICK ME</a></form>
                     
                         </div>
                     </div>
@@ -50,7 +48,7 @@
         
                                 <!-- Card image -->
                                 <div class="view overlay">
-                                <img class="card-img-top" src="/static/images/land2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="/static/images/land{{pics_list[1]}}.jpg" alt="Card image cap">
                                 <a href="#!">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -59,13 +57,8 @@
                                 <!-- Card content -->
                                 <div class="card-body">
                             
-                                <!-- Title -->
-                                <h4 class="card-title" style="color:#747373">Card title</h4>
-                                <!-- Text -->
-                                <p class="card-text" style="color:#747373">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <!-- Button -->
-                                <form action="" method="POST" ><button type="submit" name="upload" value="land2" class="btn-primary">Button</a></form>
-                            
+                                <form action="" method="POST" ><button type="submit" name="upload" value="land{{pics_list[1]}}" class="btn btn-primary btn-lg">PICK ME</a></form>
                                 </div>
                             </div>
                 </div>
@@ -74,7 +67,7 @@
         
                                 <!-- Card image -->
                                 <div class="view overlay">
-                                <img class="card-img-top" src="/static/images/land5.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="/static/images/land{{pics_list[2]}}.jpg" alt="Card image cap">
                                 <a href="#!">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -83,12 +76,8 @@
                                 <!-- Card content -->
                                 <div class="card-body">
                             
-                                <!-- Title -->
-                                <h4 class="card-title" style="color:#747373">Card title</h4>
-                                <!-- Text -->
-                                <p class="card-text" style="color:#747373">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <!-- Button -->
-                                <form action="" method="POST" ><button type="submit" name="upload" value="land3" class="btn-primary">Button</a></form>
+                                <form action="" method="POST" ><button type="submit" name="upload" value="land{{pics_list[2]}}" class="btn btn-primary btn-lg">PICK ME</a></form>
                             
                                 </div>
                             </div>
@@ -103,7 +92,7 @@
         
                                 <!-- Card image -->
                                 <div class="view overlay">
-                                <img class="card-img-top" src="/static/images/land7.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="/static/images/land{{pics_list[3]}}.jpg" alt="Card image cap">
                                 <a href="#!">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -112,12 +101,8 @@
                                 <!-- Card content -->
                                 <div class="card-body">
                             
-                                <!-- Title -->
-                                <h4 class="card-title" style="color:#747373">Card title</h4>
-                                <!-- Text -->
-                                <p class="card-text" style="color:#747373">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <!-- Button -->
-                                <form action="" method="POST" ><button type="submit" name="upload" value="land7" class="btn-primary">Button</a></form>
+                                <form action="" method="POST" ><button type="submit" name="upload" value="land{{pics_list[3]}}" class="btn btn-primary btn-lg">PICK ME</a></form>
                             
                                 </div>
                             </div>
@@ -127,7 +112,7 @@
                 
                                         <!-- Card image -->
                                         <div class="view overlay">
-                                        <img class="card-img-top" src="/static/images/land8.jpg" alt="Card image cap">
+                                        <img class="card-img-top" src="/static/images/land{{pics_list[4]}}.jpg" alt="Card image cap">
                                         <a href="#!">
                                             <div class="mask rgba-white-slight"></div>
                                         </a>
@@ -136,13 +121,8 @@
                                         <!-- Card content -->
                                         <div class="card-body">
                                     
-                                        <!-- Title -->
-                                        <h4 class="card-title" style="color:#747373">Card title</h4>
-                                        <!-- Text -->
-                                        <p class="card-text" style="color:#747373">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                         <!-- Button -->
-                                        <form action="" method="POST" ><button type="submit" name="upload" value="land8" class="btn-primary">Button</a></form>
-                                    
+                                        <form action="" method="POST" ><button type="submit" name="upload" value="land{{pics_list[4]}}" class="btn btn-primary btn-lg">PICK ME</a></form>
                                         </div>
                                     </div>
                         </div>
@@ -151,7 +131,7 @@
                 
                                         <!-- Card image -->
                                         <div class="view overlay">
-                                        <img class="card-img-top" src="/static/images/land9.jpg" alt="Card image cap">
+                                        <img class="card-img-top" src="/static/images/land{{pics_list[5]}}.jpg" alt="Card image cap">
                                         <a href="#!">
                                             <div class="mask rgba-white-slight"></div>
                                         </a>
@@ -160,12 +140,8 @@
                                         <!-- Card content -->
                                         <div class="card-body">
                                     
-                                        <!-- Title -->
-                                        <h4 class="card-title" style="color:#747373">Card title</h4>
-                                        <!-- Text -->
-                                        <p class="card-text" style="color:#747373">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                         <!-- Button -->
-                                        <form action="" method="POST" ><button type="submit" name="upload" value="land9" class="btn-primary">Button</a></form>
+                                        <form action="" method="POST" ><button type="submit" name="upload" value="land{{pics_list[5]}}" class="btn btn-primary btn-lg">PICK ME</a></form>
                                     
                                         </div>
                                     </div>

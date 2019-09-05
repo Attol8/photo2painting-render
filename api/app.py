@@ -5,7 +5,7 @@ import io
 sys.path.append('cgan')
 sys.path.append('api')
 from flask import Flask, render_template, request, send_file
-from api.commons import input_photo, load_photo, tensor_to_PIL, serve_pil_image, photo2painting
+from api.commons import input_photo, load_photo, tensor_to_PIL, serve_pil_image, photo2painting, random_list_creator
 from api.inference import get_painting_tensor
 from pathlib import Path
 from PIL import Image
@@ -29,9 +29,11 @@ def hello_world():
 @app.route('/create/', methods=['GET', 'POST'])
 def create():
     if request.method == 'GET':
-        ModelName = request.args.get('model')      
+        ModelName = request.args.get('model')
+        pics_list = random_list_creator(65, 6)
+        print(len(pics_list))   
 
-        return render_template('create.html', ModelName= ModelName)
+        return render_template('create.html', ModelName= ModelName, pics_list=pics_list)
 
     if request.method == 'POST':
                 #get model and photo querys
@@ -46,8 +48,7 @@ def create():
                 #run inference on the photo
                 painting = photo2painting(photo, ModelName) #load model from S3 and run inference
                 photo = None
-                painting = tensor_to_PIL(painting) #transform output tensor to PIL Image
-                print(type(painting))       
+                painting = tensor_to_PIL(painting) #transform output tensor to PIL Image     
                 #save painting output and update it to S3
                 u_id = str(uuid.uuid4())
                 save_path = os.path.join('api/static/esults/', u_id + '.jpg')

@@ -16,13 +16,13 @@
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
+          <i class="fas fa-paint-brush"></i>
         </div>
         <div class="divider-custom-line"></div>
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">Transform your pictures into painted Art!</p>
+      <p class="masthead-subheading font-weight-light mb-0">Transform Landscape Pictures into painted Art using GANs (Generative Adversarial Networks)!</p>
 
     </div>
   </header>
@@ -36,11 +36,11 @@
 
       <!-- Icon Divider -->
       <div class="divider-custom">
-        <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
+          <i class="fas fa-hand-point-down"></i>
+          <i class="fas fa-hand-point-down"></i>
+          <i class="fas fa-hand-point-down"></i>
         </div>
-        <div class="divider-custom-line"></div>
       </div>
 
       <!-- Portfolio Grid Items -->
@@ -48,45 +48,24 @@
 
         <!-- Portfolio Item 1 -->
         <!--data-toggle="modal" data-target="#portfolioModal1"-->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-3 col-lg-4">
           <div class="portfolio-item mx-auto">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white" >
-                  <a href = "{{url_for('create', model='van-gogh')}}">
-                    <i><strong>VAN GOGH</strong></i>
-                  </a>
-                </div>
-            </div>
-              <img class="img-fluid" src="static/img/portfolio/van-gogh.jpg" alt="">
-          </div>
+              <a href = "{{url_for('create', model='van-gogh')}}"><button type="button" class="btn btn-primary btn-lg">VAN GOGH</button></a>
+          </div>          
         </div>  
 
         <!-- Portfolio Item 2 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-3 col-lg-4">
             <div class="portfolio-item mx-auto">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                  <div class="portfolio-item-caption-content text-center text-white" >
-                    <a href = "{{url_for('create', model='cezanne')}}">
-                      <i><strong>CEZANNE</strong></i>
-                    </a>
-                  </div>
-              </div>
-                <img class="img-fluid" src="static/img/portfolio/cezanne.jpg" alt="">
-            </div>
-          </div>  
+                <a href = "{{url_for('create', model='cezanne')}}"><button type="button" class="btn btn-primary btn-lg">CEZANNE</button></a>
+            </div>          
+          </div>
 
         <!-- Portfolio Item 3 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-3 col-lg-4">
             <div class="portfolio-item mx-auto">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                  <div class="portfolio-item-caption-content text-center text-white" >
-                    <a href = "{{url_for('create', model='monet')}}">
-                      <i><strong>MONET</strong></i>
-                    </a>
-                  </div>
-              </div>
-                <img class="img-fluid" src="static/img/portfolio/monet.jpg" alt="">
-            </div>
+                <a href = "{{url_for('create', model='monet')}}"><button type="button" class="btn btn-primary btn-lg">MONET</button></a>
+            </div>          
           </div>
       <!-- /.row -->
 
@@ -95,159 +74,46 @@
 
   <!-- Image Section -->
   <section class="page-section bg-primary text-white mb-0"><!--class="page-section bg-primary text-white mb-0"-->
-    <div class="container">
-        <div class="row">
-        <!-- Card -->
-        <div class="col">
-            <div class="card">
+    <div class="gallerycontainer">
 
-                    <!-- Card image -->
-                    <div class="view overlay">
-                    <img class="card-img-top" src="/static/images/land1.jpg" alt="Card image cap">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                    </div>
-                
-                    <!-- Card content -->
-                    <div class="card-body">
-                
-                    <!-- Title -->
-                    
-                    <!-- Text -->
-                    
-                    <!-- Button -->
-                    <a href="#" class="btn btn-primary">Button</a>
-                
-                    </div>
-                </div>
-            </div>
-        <div class="col">
-                    <div class="card" style="vertical-align: bottom">
-    
-                            <!-- Card image -->
-                            <div class="view overlay">
-                            <img class="card-img-top" src="/static/images/land2.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                            </div>
-                        
-                            <!-- Card content -->
-                            <div class="card-body">
-                        
-                            <!-- Title -->
-                            
-                            <!-- Text -->
-                            
-                            <!-- Button -->
-                            <a href="#" class="btn btn-primary">Button</a>
-                        
-                            </div>
-                        </div>
-            </div>
-        <div class="col">
-                    <div class="card">
-    
-                            <!-- Card image -->
-                            <div class="view overlay">
-                            <img class="card-img-top" src="/static/images/land3.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                            </div>
-                        
-                            <!-- Card content -->
-                            <div class="card-body">
-                        
-                            <!-- Title -->
-                            
-                            <!-- Text -->
-                            
-                            <!-- Button -->
-                            <a href="#" class="btn btn-primary">Button</a>
-                        
-                            </div>
-                        </div>
-            </div>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">SOME (GENERATED) RESULTS</h2>
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div class="divider-custom-line"></div>
         </div>
-        <div class="row top-buffer"> 
-        <div class="row">
-                <!-- Card -->
-                <div class="col">
-                    <div class="card">
     
-                            <!-- Card image -->
-                            <div class="view overlay">
-                            <img class="card-img-top" src="/static/images/land7.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                            </div>
-                        
-                            <!-- Card content -->
-                            <div class="card-body">
-                        
-                            <!-- Title -->
-                            
-                            <!-- Text -->
-                            
-                            <!-- Button -->
-                            <a href="#" class="btn btn-primary">Button</a>
-                        
-                            </div>
-                        </div>
-                    </div>
-                <div class="col">
-                            <div class="card" style="vertical-align: bottom">
-            
-                                    <!-- Card image -->
-                                    <div class="view overlay">
-                                    <img class="card-img-top" src="/static/images/land8.jpg" alt="Card image cap">
-                                    <a href="#!">
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                    </div>
-                                
-                                    <!-- Card content -->
-                                    <div class="card-body">
-                                
-                                    <!-- Title -->
-                                    
-                                    <!-- Text -->
-                                    
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-primary">Button</a>
-                                
-                                    </div>
-                                </div>
-                    </div>
-                <div class="col">
-                            <div class="card">
-            
-                                    <!-- Card image -->
-                                    <div class="view overlay">
-                                    <img class="card-img-top" src="/static/images/land9.jpg" alt="Card image cap">
-                                    <a href="#!">
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                    </div>
-                                
-                                    <!-- Card content -->
-                                    <div class="card-body">
-                                
-                                    <!-- Title -->
-                                    
-                                    <!-- Text -->
-                                    
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-primary">Button</a>
-                                
-                                    </div>
-                                </div>
-                    </div>
-            </div>
-          </div>  
+      <div class="gallery">
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\land8.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\land7.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\land0.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\result4.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\result3.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\result6.jpg">
+        </div>
+    
+      </div>
+    
     </div>
 </section>
   {% endblock %}

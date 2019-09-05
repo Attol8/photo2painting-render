@@ -11,6 +11,7 @@ import os
 from api.cgan.models import base_model, networks
 import boto3, botocore
 from flask import send_file
+import random
 
 S3 = boto3.resource('s3')
 BUCKET_NAME = 'photo2painting'
@@ -109,3 +110,7 @@ def serve_pil_image(pil_img):
     pil_img.save(img_io, 'JPEG', quality=70)
     img_io.seek(0)
     return send_file(img_io, mimetype='image/jpeg', attachment_filename='result.jpeg', as_attachment=True)
+
+def random_list_creator(n_files, n_list):
+    list = my_randoms = random.sample(range(n_files),n_list)
+    return list 

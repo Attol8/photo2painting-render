@@ -1,0 +1,136 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "layout.html" %}
+
+{% block content %}
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">PHOTO TO PAINTING</h1>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0">Transform Landscape into painted Art using GANs (Generative Adversarial Networks)!</p>
+
+    </div>
+  </header>
+
+  <!-- Artist Section -->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Choose your Artist</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-icon">
+          <i class="fas fa-hand-point-down"></i>
+          <i class="fas fa-hand-point-down"></i>
+          <i class="fas fa-hand-point-down"></i>
+        </div>
+      </div>
+
+      <!-- Portfolio Grid Items -->
+      <div class="row">
+
+        <!-- Portfolio Item 1 -->
+        <!--data-toggle="modal" data-target="#portfolioModal1"-->
+        <div class="col-md-3 col-lg-4">
+          <div class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white" >
+                  <a href = "{{url_for('create', model='van-gogh')}}">
+                    <i><strong>VAN GOGH</strong></i>
+                  </a>
+                </div>
+            </div>
+              <img class="gallery-image" src="static/img/portfolio/van-gogh.jpg" alt="">
+          </div>
+        </div>  
+
+        <!-- Portfolio Item 2 -->
+        <div class="col-md-3 col-lg-4">
+            <div class="portfolio-item mx-auto">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white" >
+                    <a href = "{{url_for('create', model='cezanne')}}">
+                      <i><strong>CEZANNE</strong></i>
+                    </a>
+                  </div>
+              </div>
+                <img class="gallery-image" src="static/img/portfolio/cezanne.jpg" alt="">
+            </div>
+          </div>  
+
+        <!-- Portfolio Item 3 -->
+        <div class="col-md-3 col-lg-4">
+            <div class="portfolio-item mx-auto">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white" >
+                    <a href = "{{url_for('create', model='monet')}}">
+                      <i><strong>MONET</strong></i>
+                    </a>
+                  </div>
+              </div>
+                <img class="gallery-image" src="static/img/portfolio/monet.jpg" alt="">
+            </div>
+          </div>
+      <!-- /.row -->
+
+    </div>
+  </section>
+
+  <!-- Image Section -->
+  <section class="page-section bg-primary text-white mb-0"><!--class="page-section bg-primary text-white mb-0"-->
+    <div class="gallerycontainer">
+
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">SOME (GENERATED) RESULTS</h2>
+            <!-- Icon Divider -->
+            <div class="divider-custom">
+              <div class="divider-custom-line"></div>
+            </div>
+    
+      <div class="gallery">
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\land8.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\land7.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\land14.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\result4.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\result3.jpg">
+        </div>
+    
+        <div class="gallery-item">
+          <img class="gallery-image" src="\static\images\result6.jpg">
+        </div>
+    
+      </div>
+    
+    </div>
+</section>
+  {% endblock %}
