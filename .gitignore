@@ -9,6 +9,7 @@ taralla1.pem
 __pycache__
 .vscode
 photo2painting
+p2penv
 
 # https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 
